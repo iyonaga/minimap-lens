@@ -5,6 +5,21 @@
   "description": "A short description of your package",
   "repository": "https://github.com/atom/minimap-lens",
   "license": "MIT",
+  "scripts": {
+    "lint": "eslint '{lib,spec}/**/*.js' --format codeframe",
+    "lint:fix": "prettier-eslint --write '{lib,spec}/**/*.js'"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier-eslint --write",
+      "git add"
+    ]
+  },
   "engines": {
     "atom": ">0.50.0"
   },

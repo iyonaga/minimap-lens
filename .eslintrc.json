@@ -1,0 +1,26 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": [
+    "prettier"
+  ],
+  "globals": {
+    "atom": true,
+    "waitsForPromise": true
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true,
+    "jasmine": true
+  },
+  "rules": {
+    "no-console": "off",
+    "prettier/prettier": ["error", {
+      "singleQuote": true
+    }]
+  }
+}
