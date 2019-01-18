@@ -18,6 +18,10 @@
   atom-text-editor {
     padding-left: 1px;
     will-change: transform;
+
+    &[with-minimap] > div {
+      margin-left: 0 !important;
+    }
   }
 
   atom-text-editor-minimap {
@@ -36,6 +40,30 @@
     calc(~'100% - 10px') 100%,
     0 100%
   );
+
+  &.left {
+    clip-path: polygon(
+      0% 50%,
+      5px 45%,
+      5px 0%,
+      100% 0%,
+      100% 100%,
+      5px 100%,
+      5px 55%
+    );
+
+    .minimap-lens-clip-inner {
+      clip-path: polygon(
+        1px 50%,
+        6px calc(~'45% + 1px'),
+        6px 1px,
+        calc(~'100% - 1px') 1px,
+        calc(~'100% - 1px') calc(~'100% - 1px'),
+        6px calc(~'100% - 1px'),
+        6px calc(~'55% - 1px')
+      );
+    }
+  }
 
   &-inner {
     background: @base-background-color;
