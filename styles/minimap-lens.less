@@ -5,12 +5,44 @@
 @import "ui-variables";
 
 .minimap-lens-container {
-  border: 1px solid #fff;
-  height: 200px;
+  background: @base-background-color;
+  left: 0;
   overflow: hidden;
   position: absolute;
+  will-change: transform;
+
+  atom-text-editor {
+    will-change: transform;
+  }
 
   atom-text-editor-minimap {
     display: none;
   }
+}
+
+.minimap-lens-clip {
+  background: @text-color-selected;
+  clip-path: polygon(
+    0% 0%,
+    calc(~'100% - 10px') 0,
+    calc(~'100% - 10px') 45%,
+    100% 50%,
+    calc(~'100% - 10px') 55%,
+    calc(~'100% - 10px') 100%,
+    0 100%
+  );
+
+  &-inner {
+    background: @base-background-color;
+    clip-path: polygon(
+      1px 1px,
+      calc(~'100% - 11px') 1px,
+      calc(~'100% - 11px') calc(~'45% + 1px'),
+      calc(~'100% - 1px') 50%,
+      calc(~'100% - 11px') calc(~'55% - 1px'),
+      calc(~'100% - 11px') calc(~'100% - 1px'),
+      1px calc(~'100% - 1px')
+    );
+    height: 200px;
+  };
 }
