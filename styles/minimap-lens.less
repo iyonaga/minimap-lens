@@ -3,3 +3,14 @@
 // See https://github.com/atom/atom-dark-ui/blob/master/stylesheets/ui-variables.less
 // for a full listing of what's available.
 @import "ui-variables";
+
+.minimap-lens-container {
+  border: 1px solid #fff;
+  height: 200px;
+  overflow: hidden;
+  position: absolute;
+
+  atom-text-editor-minimap {
+    display: none;
+  }
+}
