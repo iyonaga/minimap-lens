@@ -5,14 +5,64 @@
 @import "ui-variables";
 
 .minimap-lens-container {
-  background: @base-background-color;
   left: 0;
   overflow: hidden;
   position: absolute;
   will-change: transform;
 
+  &:before {
+    background: linear-gradient(to bottom, @background-color-selected, transparent);
+    content: '';
+    display: block;
+    height: 25px;
+    left: 1px;
+    position: absolute;
+    top: 1px;
+    width: calc(~'100% - 12px');
+    z-index: 1;
+  }
+
+  &:after {
+    background: linear-gradient(to top, @background-color-selected, transparent);;
+    bottom: 1px;
+    content: '';
+    display: block;
+    height: 25px;
+    left: 1px;
+    position: absolute;
+    width: calc(~'100% - 12px');
+    z-index: 1;
+  }
+
   &.hide {
     display: none;
+  }
+
+  .clip {
+    background: @text-color;
+    clip-path: polygon(
+      0% 0%,
+      calc(~'100% - 10px') 0,
+      calc(~'100% - 10px') 46%,
+      100% 50%,
+      calc(~'100% - 10px') 54%,
+      calc(~'100% - 10px') 100%,
+      0 100%
+    );
+
+    &-inner {
+      background: @base-background-color;
+      clip-path: polygon(
+        1px 1px,
+        calc(~'100% - 11px') 1px,
+        calc(~'100% - 11px') calc(~'46% + 1px'),
+        calc(~'100% - 1px') 50%,
+        calc(~'100% - 11px') calc(~'54% - 1px'),
+        calc(~'100% - 11px') calc(~'100% - 1px'),
+        1px calc(~'100% - 1px')
+      );
+      height: 200px;
+    };
   }
 
   atom-text-editor {
@@ -29,53 +79,39 @@
   }
 }
 
-.minimap-lens-clip {
-  background: @text-color-selected;
-  clip-path: polygon(
-    0% 0%,
-    calc(~'100% - 10px') 0,
-    calc(~'100% - 10px') 45%,
-    100% 50%,
-    calc(~'100% - 10px') 55%,
-    calc(~'100% - 10px') 100%,
-    0 100%
-  );
+.minimap-lens-container.left {
+  &:before,
+  &:after {
+    left: auto;
+    right: 1px;
+    width: calc(~'100% - 7px');
+  }
 
-  &.left {
+  .clip {
     clip-path: polygon(
       0% 50%,
-      5px 45%,
+      5px 46%,
       5px 0%,
       100% 0%,
       100% 100%,
       5px 100%,
-      5px 55%
+      5px 54%
     );
 
-    .minimap-lens-clip-inner {
+    &-inner {
       clip-path: polygon(
         1px 50%,
-        6px calc(~'45% + 1px'),
+        6px calc(~'46% + 1px'),
         6px 1px,
         calc(~'100% - 1px') 1px,
         calc(~'100% - 1px') calc(~'100% - 1px'),
         6px calc(~'100% - 1px'),
-        6px calc(~'55% - 1px')
+        6px calc(~'54% - 1px')
       );
     }
   }
 
-  &-inner {
-    background: @base-background-color;
-    clip-path: polygon(
-      1px 1px,
-      calc(~'100% - 11px') 1px,
-      calc(~'100% - 11px') calc(~'45% + 1px'),
-      calc(~'100% - 1px') 50%,
-      calc(~'100% - 11px') calc(~'55% - 1px'),
-      calc(~'100% - 11px') calc(~'100% - 1px'),
-      1px calc(~'100% - 1px')
-    );
-    height: 200px;
-  };
+  atom-text-editor {
+    padding-left: 6px;
+  }
 }
