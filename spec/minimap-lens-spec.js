@@ -1,31 +1,43 @@
 'use babel';
 
-import MinimapLens from '../lib/minimap-lens';
+describe('MinimapLens', () => {
+  let workspaceElement, editor, editorElement, minimap, minimapElement;
 
-describe("MinimapLens", function() {
-  var editor,
-      ref,
-      workspaceElement;
-
-  beforeEach(function() {
+  beforeEach(() => {
     workspaceElement = atom.views.getView(atom.workspace);
-    jasmine.attachToDOM(workspaceElement);
-    waitsForPromise(function() { return atom.workspace.open('sample.js'); });
 
-    runs(function() {
-      editor = atom.workspace.getActiveTextEditor();
-      editor.setText("This is the file content");
-    });
-    waitsForPromise(function() {
-      return atom.packages.activatePackage('minimap');
-    });
-    return waitsForPromise(function() {
-      return atom.packages.activatePackage('minimap-lens');
+    waitsForPromise(() =>
+      atom.workspace.open('sample.js').then(e => {
+        editor = e;
+      })
+    );
+
+    waitsForPromise(() =>
+      atom.packages.activatePackage('minimap').then(pkg => {
+        minimap = pkg.mainModule.minimapForEditor(editor);
+        minimapElement = atom.views.getView(minimap);
+      })
+    );
+
+    waitsForPromise(() => atom.packages.activatePackage('minimap-lens'));
+
+    runs(() => {
+      editorElement = atom.views.getView(editor);
+      jasmine.attachToDOM(workspaceElement);
     });
   });
-  describe("with an open editor that have a minimap", function() {
-    it("lives", function() {
-      expect('life').toBe('easy');
+
+  describe('with an open editor that have a minimap', () => {
+    describe('when hovering to minimap', () => {
+      it('code lens should exist', () => {
+        const evt = document.createEvent('HTMLEvents');
+        evt.initEvent('mouseenter', true, true);
+        minimapElement.dispatchEvent(evt);
+
+        expect(
+          editorElement.querySelector('.minimap-lens-container')
+        ).toExist();
+      });
     });
   });
 });
