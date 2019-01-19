@@ -2,8 +2,13 @@
   "name": "minimap-lens",
   "main": "./lib/minimap-lens",
   "version": "0.0.0",
-  "description": "A short description of your package",
-  "repository": "https://github.com/atom/minimap-lens",
+  "description": "Show code lens on hovering to Minimap.",
+  "keywords": [
+    "minimap",
+    "lens",
+    "lens-mode"
+  ],
+  "repository": "https://github.com/iyonaga/minimap-lens",
   "license": "MIT",
   "scripts": {
     "lint": "eslint '{lib,spec}/**/*.js' --format codeframe",
@@ -21,7 +26,7 @@
     ]
   },
   "engines": {
-    "atom": ">0.50.0"
+    "atom": ">=1.0.0 <2.0.0"
   },
   "consumedServices": {
     "minimap": {
