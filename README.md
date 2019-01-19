@@ -1,5 +1,9 @@
 # minimap-lens package
 
-A short description of your package.
+Atom plugin to show code lens on hovering to Minimap.
 
-![A screenshot of your spankin' package](https://f.cloud.github.com/assets/69169/2290250/c35d867a-a017-11e3-86be-cd7c5bf3ff9b.gif)
+![Demo](https://user-images.githubusercontent.com/21187480/51425475-f31f7600-1c1f-11e9-9048-37ab264970a0.gif)
+
+## Settings
+### Lens Height
+The height of lens in pixels. `(default: 200)`
