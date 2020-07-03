@@ -7,3 +7,6 @@ Atom plugin to show code lens on hovering to Minimap.
 ## Settings
 ### Lens Height
 The height of lens in pixels. `(default: 200)`
+
+### Lens Delay
+Delay before showing the lens in ms. `(default: 0)`
