@@ -1,3 +1,6 @@
+## 0.4.1
+* update README.md
+
 ## 0.4.0
 * added possibility to configure a delay before the lens shows up #9 [#11](https://github.com/iyonaga/minimap-lens/pull/11)
 
