@@ -1,3 +1,6 @@
+## 0.5.0
+* Improve scrolling performance [#17](https://github.com/iyonaga/minimap-lens/pull/17)
+
 ## 0.4.1
 * update README.md
 
