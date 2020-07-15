@@ -1,3 +1,9 @@
+## 0.6.0
+* Hide lens when mouse is pressed ([#18](https://github.com/iyonaga/minimap-lens/pull/18))
+* use activation hook ([#19](https://github.com/iyonaga/minimap-lens/pull/19))
+* skip createLens when itemView is null ([#20](https://github.com/iyonaga/minimap-lens/pull/20))
+* calculate and cache editor width ([#21](https://github.com/iyonaga/minimap-lens/pull/21))
+
 ## 0.5.0
 * Improve scrolling performance [#17](https://github.com/iyonaga/minimap-lens/pull/17)
 
