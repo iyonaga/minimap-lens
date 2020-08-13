@@ -1,7 +1,7 @@
 {
   "name": "minimap-lens",
   "main": "./lib/minimap-lens",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "Show code lens on hovering to Minimap.",
   "keywords": [
     "minimap",
