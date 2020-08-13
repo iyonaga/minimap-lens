@@ -1,3 +1,7 @@
+## v0.8.0
+* Add a large file mode to disable the lens ([#32](https://github.com/iyonaga/minimap-lens/pull/32))
+* Improve performance ([#28](https://github.com/iyonaga/minimap-lens/pull/28), [#29](https://github.com/iyonaga/minimap-lens/pull/29), [#30](https://github.com/iyonaga/minimap-lens/pull/30), [#31](https://github.com/iyonaga/minimap-lens/pull/31))
+
 ## v0.7.0
 * **Improved:** Proper caching system ([#23](https://github.com/iyonaga/minimap-lens/pull/23))
 * **Improved:** Fast setLensPosition ([#24](https://github.com/iyonaga/minimap-lens/pull/24))
