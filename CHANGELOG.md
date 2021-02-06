@@ -1,3 +1,6 @@
+## v0.8.2
+* Fix #35 and #36 
+
 ## v0.8.1
 * Update README.md
 
